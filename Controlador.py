@@ -322,6 +322,12 @@ class controlador:
             tipo (int):
                 Indica el movimiento en el que se encuentra. Este valor puede
                 ir desde 1 hasta 5.
+            depth (int):
+                Profundidad restante de exploracion.
+            alpha (int):
+                Valor de alpha más alto hasta el momento
+            beta (int): 
+                Valor de beta más bajo hasta el momento
 
         Returns:
             puntuacion (int):
@@ -373,6 +379,12 @@ class controlador:
             tipo (int):
                 Indica el movimiento en el que se encuentra. Este valor puede
                 ir desde 1 hasta 5.
+            depth (int): 
+                Profundidad restante de exploracion
+            alpha (int):
+                Valor de alpha más alto hasta el momento
+            beta (int): 
+                Valor de beta más bajo hasta el momento
         
         Returns:
             movs (list):

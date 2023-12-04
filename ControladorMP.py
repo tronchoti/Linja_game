@@ -377,6 +377,10 @@ class controlador:
             tipo (int):
                 Indica el movimiento en el que se encuentra. Este valor puede
                 ir desde 1 hasta 5.
+            alpha (int):
+                Valor de alpha más alto hasta el momento
+            beta (int): 
+                Valor de beta más bajo hasta el momento
 
         Returns:
             puntuacion (int):
@@ -426,8 +430,12 @@ class controlador:
             numMovs (int):
                 Numero de movimientos que puede realizar en este movimiento
             tipo (int):
-                Indica el movimiento en el que se encuentra. Este valor puede
-                ir desde 1 hasta 5.
+                Indica el movimiento en el que se encuentra dentro del turno. 
+                Este valor puede ir desde 1 hasta 5.
+            alpha (int):
+                Valor de alpha más alto hasta el momento
+            beta (int): 
+                Valor de beta más bajo hasta el momento
         
         Returns:
             movs (list):
