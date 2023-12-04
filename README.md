@@ -21,7 +21,7 @@ Como se ha visto en la primera imagen, el tablero está formado por 8 filas y es
 Cada fila tiene una puntuación determinada, siendo de forma simétrica para ambas partes del tablero. Para que una pieza del color negro puntúe, tiene que cruzar el centro del tablero y entrar en la zona de las piezas rojas, y viceversa.
 
 
-## :straight_ruler:REGLAS/EXCEPCIONES:exclamation:
+## :straight_ruler: REGLAS/EXCEPCIONES :exclamation:
 Este juego ha sufrido de bastantes cambios en las reglas de juego desde su creación. Sin embargo, esta versión del linja incluse las siguientes reglas o excepciones.
 - Si en el primer movimiento el jugador mueve su pieza a una fila vacía, este jugador no tendrá derecho a realizar un segundo movimiento, y por tanto su turno habrá finalizado.
 - Si en su segundo movimiento el jugador mueve una de sus piezas a una fila vacía, este será recompensado con un turno extra. Estas jugadas no son acumulables, dando lugar a un máximo de 4 movimientos por turno.
