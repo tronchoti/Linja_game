@@ -54,3 +54,12 @@ Este algoritmo surgió con la idea de resolver el gran problema que tiene MiniMa
 Para la ejecución de este algoritmo, jugaremos con dos variables que llamaremos **Alpha** y **Beta**. Estas tomarán el valor inicial de $-\infty$ y $\infty$ respectivamente. Alpha representa el valor máximo obtenido hasta el momento en los nodos MAX, mientras que beta representa el valor más bajo obtenido en los nodos MIN.
 
 Durante la exploración se van actualizando estos valores según sea correspondiente. Luego dentro de cada nodo, se realiza la comparación de si $\alpha\geq\beta$. Si esta comparación se cumple, podemos decir que no tiene sentido seguir explorando el resto de ramas de ese subarbol puesto que nunca van a conseguir superar la puntuación obtenida en ese momento.
+
+## :chart_with_downwards_trend:OPTIMIZACIONES
+Con el objetivo de tratar de reducir el tiempo de cálculo he introducido una pequeña optimización gracias a como funciona el Linja. Está instalada de forma paralela al algoritmo de alpha beta, teniendo este útlimo un mayor impacto en el rendimiento que el mencionado al principio de este punto.
+
+Debido a que en una misma fila puedes tener varias fichas de tu mismo color, y que mover el resultado de mover una pieza u otra es el mismo, no tiene sentido seguir explorando las demás fichas de la misma fila una vez explorada la primera. 
+<br>
+<img src="./images/optimizacion1.png" width=600 height="auto">
+<br>
+Como se ve en la imagen, el resultado de mover una u otra pieza de la misma fila es el mismo, puesto que en este juego se evalúa solo por la fila en la que se encuentra, sin importar la columna. Es por esto, que el resto de piezas se saltan y no se exploran.

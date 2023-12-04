@@ -387,6 +387,8 @@ class controlador:
                 Devuelve la puntuacion mas alta de los movimientos realizados'''
         puntuaciones = []
         last_row = None
+        
+        # CONDICIONES PARA NODO TERMINAL
         if depth == 0:
             self.num_recur+=1
             return self.calcular_puntuacion_total(tablero)
@@ -396,9 +398,12 @@ class controlador:
         if numMovs == 0:
             value = self.MAX(tablero, 1, 1, depth-1, alpha, beta)
             return value[0]
+        
+        # SI NO SE HA CUMPLIDO NINGUNA DE LAS CONDICIONES ANTERIORES, NODO NO TERMINAL
         else:
             options = self.get_movimientos_rojas(numMovs, tablero, False)
             for i in options:
+                # Optimización para ahorrar el cálculo de algunas ramas. Ver README para más
                 if last_row == None:
                     last_row = i[0]
                 elif last_row == i[0]:
@@ -410,6 +415,8 @@ class controlador:
                 value = self.MIN(new_tablero, num_movs_2, tipo + 1, depth, alpha, beta)
                 puntuaciones.append(value)
                 last_row = i[0]
+                
+                # ALPHA BETA PRUNING
                 if value <= beta:
                     beta = value
                 if alpha >= beta:
@@ -445,6 +452,8 @@ class controlador:
         puntuaciones = []
         last_row = None
         movs = []
+
+        # CONDICIONES PARA NODO TERMINAL
         if depth == 0:
             self.num_recur+=1
             return (self.calcular_puntuacion_total(tablero),[])
@@ -452,9 +461,12 @@ class controlador:
             return (self.MIN(tablero, 1, 1, depth-1, alpha, beta), [])
         if numMovs == 0:
             return (self.MIN(tablero, 1, 1, depth-1, alpha, beta),[])
+        
+        # SI NO SE HA CUMPLIDO NINGUNA DE LAS CONDICIONES ANTERIORES, NODO NO TERMINAL
         else:
             options = self.get_movimientos_negras(numMovs, tablero, False)
             for i in options:
+                # Optimización para ahorrar el cálculo de algunas ramas. Ver README para más
                 if last_row == None:
                     last_row = i[0]
                 elif last_row == i[0]:
@@ -469,6 +481,8 @@ class controlador:
                 movs.append(value[1])
                 puntuaciones.append(value[0])
                 last_row = i[0]
+
+                # ALPHA BETA PRUNING
                 if value[0] > alpha:
                     alpha = value[0]
                 if alpha >= beta:
