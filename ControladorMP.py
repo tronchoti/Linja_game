@@ -515,6 +515,7 @@ class controlador:
         movs = []
         last_row = None
         proc_counter = 0
+
         for i in movs_options:
             if last_row == None:
                 last_row = i[0]
@@ -558,3 +559,5 @@ class controlador:
                 return
             numMovs = self.comprobar_reglas(tipo, num_movs_2, new_row)
             tipo += 1      
+
+    
