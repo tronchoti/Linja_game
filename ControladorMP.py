@@ -406,6 +406,10 @@ class controlador:
                 value = self.MIN(new_tablero, num_movs_2, tipo + 1, depth, alpha, beta)
                 puntuaciones.append(value)
                 last_row = i[0]
+                if value <= beta:
+                    beta = value
+                if alpha >= beta:
+                    break
             if len(puntuaciones) == 0:
                 return 999
             return min(puntuaciones)
@@ -457,6 +461,10 @@ class controlador:
                 movs.append(value[1])
                 puntuaciones.append(value[0])
                 last_row = i[0]
+                if value[0] > alpha:
+                    alpha = value[0]
+                if alpha >= beta:
+                    break
             if len(puntuaciones) == 0:
                 return (-999,[])
             index_max = puntuaciones.index(max(puntuaciones))
