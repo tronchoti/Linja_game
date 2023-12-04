@@ -1,7 +1,16 @@
 # Linja
 Linja programado en Python. Linja es un juego de mesa de tipo adversario, donde un jugador juega contra otro.
 
-
+# ÍNDICE
+1. [Como jugar](#como-jugar-question)
+2. [Sistema de puntuación](#dartsistema-de-puntuación)
+3. [Reglas y Excepciones](#straight_ruler-reglasexcepciones-exclamation)
+4. [Algoritmos usados](#triangular_ruler-algoritmos-usados)
+    1. [MiniMax](#small_red_trianglesmall_red_triangle_down-minimax)
+    2. [Alpha Beta](#scissorspoda-alpha-beta)
+    3. [Función heruística](#1234-funcion-heurística)
+5. [Optimizacinoes](#chart_with_downwards_trendoptimizaciones)
+6. [Ejecución](#)
 ## COMO JUGAR :question:
 El tablero del linja está formado por 8 filas y 6 columnas. La distribución inicial del tablero es la siguiente:
 <br>
@@ -41,19 +50,19 @@ Para esto, tendremos lo que se conoce como un *arbol de exploración*. Este est�
 <br>
 En la frontera de exploración, que se dará a una profundidad determinada por el usuario, se nos devolverá el valor de la función heurística de esa rama. Este valor irá subiendo por los nodos, tal y como se ve en la imagen.
 
-#### :1234: FUNCION HEURÍSTICA
-Para poder evaluar si una jugada es buena o mala, necesitamos puntuar cada una de estas de alguna forma. Para esto tenemos la función heurística, la cual nos va a dar una puntuación concreta en función del estado del tablero y la disposición de las piezas en este.
-
-Para este caso, la función heurística elegida es la siguiente:
-$PtsJ1 - PtsJ2$
-Se restarán a puntos del jugador 1, que en este caso corresponden a los puntos del jugador que maneja la IA, los puntos del contrincante, el jugador 2.
-
 ### :scissors:PODA ALPHA BETA 
 Este algoritmo surgió con la idea de resolver el gran problema que tiene MiniMax, que no es otro que el hecho de que el número de ramas crece exponencialmente conforme la profundidad aumenta, es decir, cuantas más jugadas se exploran.
 
 Para la ejecución de este algoritmo, jugaremos con dos variables que llamaremos **Alpha** y **Beta**. Estas tomarán el valor inicial de $-\infty$ y $\infty$ respectivamente. Alpha representa el valor máximo obtenido hasta el momento en los nodos MAX, mientras que beta representa el valor más bajo obtenido en los nodos MIN.
 
 Durante la exploración se van actualizando estos valores según sea correspondiente. Luego dentro de cada nodo, se realiza la comparación de si $\alpha\geq\beta$. Si esta comparación se cumple, podemos decir que no tiene sentido seguir explorando el resto de ramas de ese subarbol puesto que nunca van a conseguir superar la puntuación obtenida en ese momento.
+
+#### :1234: FUNCION HEURÍSTICA
+Para poder evaluar si una jugada es buena o mala, necesitamos puntuar cada una de estas de alguna forma. Para esto tenemos la función heurística, la cual nos va a dar una puntuación concreta en función del estado del tablero y la disposición de las piezas en este.
+
+Para este caso, la función heurística elegida es la siguiente:
+$PtsJ1 - PtsJ2$
+Se restarán a puntos del jugador 1, que en este caso corresponden a los puntos del jugador que maneja la IA, los puntos del contrincante, el jugador 2.
 
 ## :chart_with_downwards_trend:OPTIMIZACIONES
 Con el objetivo de tratar de reducir el tiempo de cálculo he introducido una pequeña optimización gracias a como funciona el Linja. Está instalada de forma paralela al algoritmo de alpha beta, teniendo este útlimo un mayor impacto en el rendimiento que el mencionado al principio de este punto.
@@ -63,3 +72,9 @@ Debido a que en una misma fila puedes tener varias fichas de tu mismo color, y q
 <img src="./images/optimizacion1.png" width=600 height="auto">
 <br>
 Como se ve en la imagen, el resultado de mover una u otra pieza de la misma fila es el mismo, puesto que en este juego se evalúa solo por la fila en la que se encuentra, sin importar la columna. Es por esto, que el resto de piezas se saltan y no se exploran.
+
+## :arrow_forward:Ejecución
+Para la ejecución del programa clonar el repositorio en una carpeta, y ejecutar el archivo linja desde la terminal.
+```python
+python Linja.py
+```

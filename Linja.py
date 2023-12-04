@@ -4,6 +4,16 @@ import sys
 from Color import Color
 from random import random
 
+''' LINJA
+
+Autor: Álvar Gómez Cuesta
+Asignatura: Sistemas Inteligentes
+
+Objetivo: programar una IA contra la que jugar al Linja.
+Lenguaje: Python
+
+Github: 
+'''
 
 
 intro = '''
@@ -32,6 +42,7 @@ reglas1 = '''
 █  casillas que podrá mover una ficha el jugador en su segundo movimiento. Es decir, si en su movimiento inicial el jugador █ 
 █  desplazó una ficha a una casilla que ya contenía tres fichas, en su segundo movimiento podrá mover una ficha tres        █
 █  casillas hacia delante.                                                                                                  █
+█                                                                                                                           █
 █  Dos aclaraciones: las fichas desplazadas en ambos movimientos pueden o no ser la misma; y si en su movimiento inicial    █
 █  un jugador movió una ficha a una casilla vacía perderá el derecho a su segundo movimiento y deberá pasar turno (algo     █
 █  lógico, pudiendo entenderse como que su segundo movimiento ha sido de cero casillas).                                    █
